@@ -1,6 +1,7 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.input.mouse.FlxMouseEventManager;
 import flixel.tweens.FlxTween;
@@ -27,6 +28,8 @@ class Card extends FlxSprite
 	{
 		super(X, Y);
 		loadGraphic(AssetPaths.spritesheet__png, true, 140, 243);
+		setFacingFlip(DOWN, false, true);
+		setFacingFlip(UP, false, false);
 		myState = MYState;
 
 		FlxMouseEventManager.add(this, onDown, null, onOver, onOut);
@@ -62,10 +65,12 @@ class Card extends FlxSprite
 
 			case FACE_UP:
 				animation.frameIndex = 0;
+				this.facing = FlxObject.UP;
 				myState = FACE_DOWN;
 
 			case FACE_REVERSED:
 				animation.frameIndex = 0;
+				this.facing = FlxObject.DOWN;
 				myState = FACE_DOWN;
 		}
 		// animation.frameIndex = cardIndex;
