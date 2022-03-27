@@ -24,6 +24,30 @@ class PlayState extends FlxState
 
 		super.create();
 
+		add(createSpread("Genreal Future"));
+
+		introStep();
+	}
+
+	private function createSpread(spreadType:String)
+	{
+		switch (spreadType)
+		{
+			case "Genreal Future":
+				null;
+			case "Self Care":
+				null;
+			case "Love":
+				null;
+			case "Careers":
+				null;
+			case "Introspective":
+				null;
+		}
+	}
+
+	private function introStep()
+	{
 		cardGroup = new FlxTypedGroup<Card>(amountOfCards);
 
 		// var cardOutLine:FlxOutlineEffect = new FlxOutlineEffect(FlxOutlineMode.FAST, FlxColor.PURPLE, 5);
@@ -40,7 +64,7 @@ class PlayState extends FlxState
 			cardGroup.add(card);
 		}
 
-		add(cardGroup);
+		// add(cardGroup);
 	}
 
 	override public function update(elapsed:Float)
